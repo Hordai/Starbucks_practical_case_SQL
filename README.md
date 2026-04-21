@@ -30,6 +30,7 @@ Le programme de fidélité a un impact direct sur le chiffre d'affaires. Bien qu
 ### 2. L'effet du digital et sa capacité à créer de la valeur
 La deuxième étape consiste à analyser la répartition du chiffre d'affaires par canal d'acquisition pour comprendre le comportement des utilisateurs mobiles.
 
+```SQL
 SELECT 
     order_channel,
     COUNT(order_id) AS total_orders,
@@ -41,12 +42,14 @@ GROUP BY
     order_channel
 ORDER BY 
     avg_spend DESC;
+```
 
 L'analyse révèle une différence marquante entre les canaux digitaux et physiques. L'application mobile domine avec plus d'un tiers des commandes totales (42,52%). Le panier moyen sur mobile atteint 18,08$, soit environ 6$ de plus que les canaux classiques (In-Store, Drive-Thru). Cette hausse est corrélée à l'augmentation des options payantes : un client mobile ajoute en moyenne plus de 2 personnalisations, soit le double d'un client physique.
 
 ### 3. Les goulots d'étranglement côté opérationnel
 Ensuite, il est également pertinent d'évaluer l'efficacité de la préparation des commandes et de son impact sur la satisfaction client.
 
+```SQL
 SELECT 
     order_channel,
     ROUND(AVG(fulfillment_time_min), 2) AS avg_wait_time_minutes,
@@ -58,12 +61,14 @@ GROUP BY
     order_channel
 ORDER BY 
     avg_wait_time_minutes DESC;
+```
 
 Le Drive-Thru rencontre un problème opérationnel. C'est le canal le plus lent (avec une attente moyenne de 6 minutes et des pics à +11 minutes), ce qui impacte sévèrement l'expérience client. En effet, il obtient la pire note de satisfaction (3,44/5). À l'inverse, le Mobile App conserve la meilleure note globale (3,86/5) grâce à un équilibre entre attente et fluidité de commande.
 
 ### 4. La segmentation : Le profil type du Super-Customisateur
 Enfin, il est crucial d'identifier les segments démographiques les plus rentablesn notamment ceux qui ajoutent 2 options payantes ou plus, via l'utilisation de requêtes avancées (CTE).
 
+```SQL
 WITH HeavyCustomizers AS (
     SELECT 
         customer_age_group,
@@ -84,6 +89,7 @@ GROUP BY
     customer_age_group, order_channel
 ORDER BY 
     total_heavy_orders DESC;
+```
 
 La forte rentabilité des boissons personnalisées est portée par un segment très précis : le duo "25-34 ans / Mobile App" est de loin le premier pourvoyeur de commandes ultra-personnalisées (11 705 commandes à 18,74 $), suivi par les 18-24 ans sur le même canal.
 
