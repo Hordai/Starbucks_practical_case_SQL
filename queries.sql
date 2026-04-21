@@ -4,7 +4,7 @@ SELECT
     COUNT(order_id) AS total_orders,
     ROUND(AVG(total_spend), 2) AS average_spend
 FROM 
-    `starbucks_data.orders`
+    `portfotlio-1.startbuck.orders`
 GROUP BY 
     is_rewards_member;
 
@@ -15,7 +15,7 @@ SELECT
     ROUND(AVG(total_spend), 2) AS avg_spend,
     ROUND(AVG(num_customizations), 2) AS avg_customizations
 FROM 
-    `starbucks_data.orders`
+    `portfotlio-1.startbuck.orders`
 GROUP BY 
     order_channel
 ORDER BY 
@@ -28,7 +28,7 @@ SELECT
     MAX(fulfillment_time_min) AS max_wait_time_minutes,
     ROUND(AVG(customer_satisfaction), 2) AS avg_satisfaction
 FROM 
-    `starbucks_data.orders`
+    `portfotlio-1.startbuck.orders`
 GROUP BY 
     order_channel
 ORDER BY 
@@ -41,7 +41,7 @@ WITH HeavyCustomizers AS (
         order_channel,
         total_spend
     FROM 
-        `starbucks_data.orders`
+        `portfotlio-1.startbuck.orders`
     WHERE 
         num_customizations >= 2)
 SELECT 
@@ -55,7 +55,6 @@ GROUP BY
     customer_age_group, order_channel
 ORDER BY 
     total_heavy_orders DESC;
-
 
 
 
