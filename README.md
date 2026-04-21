@@ -1,14 +1,18 @@
 # Starbucks retail analysis : le comportement client et l'efficacité opérationnelle
 
 ## Le contexte
-Dans un secteur du retail en pleine mutation, la digitalisation des parcours d'achat et la fidélisation sont des enjeux majeurs. Ce projet d'analyse de données, réalisé avec Google BigQuery, explore un dataset de 100 000 transactions simulées de chez Starbucks entre 2024 et 2025 (source : kaggle).
+Dans un secteur du retail en pleine mutation, la digitalisation des parcours d'achat et la fidélisation sont des enjeux majeurs. Ce projet d'analyse de données, réalisé avec Google BigQuery, explore un dataset de 100 000 transactions simulées de chez Starbucks (2024-2025).
 
 L'objectif principal est d'identifier les leviers de croissance à travers l'analyse de l'adoption de l'application mobile, l'efficacité des différents canaux de vente (Drive-Thru, In-Store, Mobile App) et l'impact du programme de fidélité "Rewards".
+
+* Dataset : https://www.kaggle.com/datasets/likithagedipudi/starbucks-customer-ordering-patterns
+* Tableau de bord interactif : https://datastudio.google.com/reporting/dbf76d11-9468-4e86-ad1a-3db8cfbd63cb
+
 
 ## Les outils et les compétences
 * Outil : Google BigQuery (Cloud SQL)
 * Techniques SQL utilisées : Agrégations (GROUP BY), Fonctions de calcul (COUNT, SUM, AVG), Filtrage (HAVING, WHERE) et des expressions de Table Communes (WITH).
-* Dataset : https://www.kaggle.com/datasets/likithagedipudi/starbucks-customer-ordering-patterns
+* Data Visualisation : Locker Studio
 
 ## L'analyse et les insights stratégiques
 ### 1. L'impact du programme de fidélité ("Rewards")
