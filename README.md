@@ -13,7 +13,7 @@ L'objectif principal est d'identifier les leviers de croissance à travers l'ana
 ### 1. L'impact du programme de fidélité ("Rewards")
 La première étape consistait à vérifier si l'acquisition de membres au programme de fidélité se traduisait par une augmentation réelle du chiffre d'affaires.
 
-SELECT 
+'''SELECT 
     is_rewards_member,
     COUNT(order_id) AS total_orders,
     ROUND(AVG(total_spend), 2) AS average_spend
