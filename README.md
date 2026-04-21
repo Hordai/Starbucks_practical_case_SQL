@@ -20,11 +20,11 @@ SELECT
     COUNT(order_id) AS total_orders,
     ROUND(AVG(total_spend), 2) AS average_spend
 FROM 
-    'starbucks_data.orders'
+    `portfotlio-1.startbuck.orders`
 GROUP BY 
     is_rewards_member;
 ```
-
+<img width="899" height="487" alt="image" src="https://github.com/user-attachments/assets/64e667d0-bd29-4a1a-9cd6-570e98e4fa4f" />
 
 Le programme de fidélité a un impact direct sur le chiffre d'affaires. Bien que les membres Rewards génèrent un peu moins de transactions au global (47,7% du volume), leur panier moyen est significativement plus élevé (+1,63$ par commande par rapport aux non-membres).
 
@@ -38,12 +38,13 @@ SELECT
     ROUND(AVG(total_spend), 2) AS avg_spend,
     ROUND(AVG(num_customizations), 2) AS avg_customizations
 FROM 
-    'starbucks_data.orders'
+    `portfotlio-1.startbuck.orders`
 GROUP BY 
     order_channel
 ORDER BY 
     avg_spend DESC;
 ```
+<img width="907" height="584" alt="image" src="https://github.com/user-attachments/assets/9734da2a-35c4-486c-8912-eb7bed5ac9a4" />
 
 L'analyse révèle une différence marquante entre les canaux digitaux et physiques. L'application mobile domine avec plus d'un tiers des commandes totales (42,52%). Le panier moyen sur mobile atteint 18,08$, soit environ 6$ de plus que les canaux classiques (In-Store, Drive-Thru). Cette hausse est corrélée à l'augmentation des options payantes : un client mobile ajoute en moyenne plus de 2 personnalisations, soit le double d'un client physique.
 
@@ -57,12 +58,13 @@ SELECT
     MAX(fulfillment_time_min) AS max_wait_time_minutes,
     ROUND(AVG(customer_satisfaction), 2) AS avg_satisfaction
 FROM 
-    'starbucks_data.orders'
+    `portfotlio-1.startbuck.orders`
 GROUP BY 
     order_channel
 ORDER BY 
     avg_wait_time_minutes DESC;
 ```
+<img width="905" height="549" alt="image" src="https://github.com/user-attachments/assets/6de4bce6-7bc1-4a64-8f4c-e23ec6174e3e" />
 
 Le Drive-Thru rencontre un problème opérationnel. C'est le canal le plus lent (avec une attente moyenne de 6 minutes et des pics à +11 minutes), ce qui impacte sévèrement l'expérience client. En effet, il obtient la pire note de satisfaction (3,44/5). À l'inverse, le Mobile App conserve la meilleure note globale (3,86/5) grâce à un équilibre entre attente et fluidité de commande.
 
@@ -76,7 +78,7 @@ WITH HeavyCustomizers AS (
         order_channel,
         total_spend
     FROM 
-        'starbucks_data.orders'
+        `portfotlio-1.startbuck.orders`
     WHERE 
         num_customizations >= 2)
 SELECT 
@@ -91,6 +93,7 @@ GROUP BY
 ORDER BY 
     total_heavy_orders DESC;
 ```
+<img width="823" height="744" alt="image" src="https://github.com/user-attachments/assets/234ae548-b337-41fe-8138-2e4715ed3c49" />
 
 La forte rentabilité des boissons personnalisées est portée par un segment très précis : le duo "25-34 ans / Mobile App" est de loin le premier pourvoyeur de commandes ultra-personnalisées (11 705 commandes à 18,74 $), suivi par les 18-24 ans sur le même canal.
 
