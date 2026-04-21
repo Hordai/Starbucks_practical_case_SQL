@@ -8,6 +8,7 @@ L'objectif principal est d'identifier les leviers de croissance à travers l'ana
 ## Les outils et les compétences
 * Outil : Google BigQuery (Cloud SQL)
 * Techniques SQL utilisées : Agrégations (GROUP BY), Fonctions de calcul (COUNT, SUM, AVG), Filtrage (HAVING, WHERE) et des expressions de Table Communes (WITH).
+* Dataset : https://www.kaggle.com/datasets/likithagedipudi/starbucks-customer-ordering-patterns
 
 ## L'analyse et les insights stratégiques
 ### 1. L'impact du programme de fidélité ("Rewards")
